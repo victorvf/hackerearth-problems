@@ -48,49 +48,49 @@ _____________________________________________
 using namespace std;
 
 int main() {
-	int number_of_test_cases;
-	cin >> number_of_test_cases;
+    int number_of_test_cases;
+    cin >> number_of_test_cases;
 
-	for (int i = 0; i < number_of_test_cases; i++) {
-		int number_of_rows, number_of_columns;
+    for (int i = 0; i < number_of_test_cases; i++) {
+        int number_of_rows, number_of_columns;
 
-		cin >> number_of_rows >> number_of_columns;
+        cin >> number_of_rows >> number_of_columns;
 
         int count = 0, ans = 0;
-		char arr[number_of_rows][number_of_columns];
+        char arr[number_of_rows][number_of_columns];
 
-		for (int i = 0; i < number_of_rows; i++) {
-			for (int j = 0; j < number_of_columns; j++) {
-				cin >> arr[i][j];
+        for (int i = 0; i < number_of_rows; i++) {
+            for (int j = 0; j < number_of_columns; j++) {
+                cin >> arr[i][j];
 
-				if (arr[i][j] == '#') { count++; }
-			}
+                if (arr[i][j] == '#') { count++; }
+            }
 
-			if (count > ans) { ans = count; }
+            if (count > ans) { ans = count; }
 
-			count = 0;
-		}
+            count = 0;
+        }
 
-		for (int i = 0; i < number_of_columns; i++) {
-			for (int j = 0; j < number_of_rows; j++) {
-				if (j > 0) {
-					if (arr[j][i] == '#') {
-						if (arr[j - 1][i] == '#') {
-							count++;
-						}
-					} else {
-						break;
-					}
-				} else {
-					if (arr[j][i] == '#') { count++; }
-				}
-			}
+        for (int i = 0; i < number_of_columns; i++) {
+            for (int j = 0; j < number_of_rows; j++) {
+                if (j > 0) {
+                    if (arr[j][i] == '#') {
+                        if (arr[j - 1][i] == '#') {
+                            count++;
+                        }
+                    } else {
+                        break;
+                    }
+                } else {
+                    if (arr[j][i] == '#') { count++; }
+                }
+            }
 
-			if (count > ans) { ans = count; }
+            if (count > ans) { ans = count; }
 
-			count = 0;
-		}
+            count = 0;
+        }
 
-		cout << ans << endl;
-	}
+        cout << ans << endl;
+    }
 }
